@@ -68,6 +68,24 @@ export default class Header extends React.Component<IHeaderProps, IHeaderState> 
   render() {
     const { currentLocale, isAuthenticated, isAdmin } = this.props;
     const entityMenuItems = [
+      <DropdownItem tag={Link} key="group-table" to="/entity/group-table">
+        <FontAwesomeIcon icon="asterisk" />&nbsp; Group Table
+      </DropdownItem>,
+      <DropdownItem tag={Link} key="running-record" to="/entity/running-record">
+        <FontAwesomeIcon icon="asterisk" />&nbsp; Running Record
+      </DropdownItem>,
+      <DropdownItem tag={Link} key="vote-record" to="/entity/vote-record">
+        <FontAwesomeIcon icon="asterisk" />&nbsp; Vote Record
+      </DropdownItem>,
+      <DropdownItem tag={Link} key="user-info" to="/entity/user-info">
+        <FontAwesomeIcon icon="asterisk" />&nbsp; User Info
+      </DropdownItem>,
+      <DropdownItem tag={Link} key="user-group" to="/entity/user-group">
+        <FontAwesomeIcon icon="asterisk" />&nbsp; User Group
+      </DropdownItem>,
+      <DropdownItem tag={Link} key="target-distance" to="/entity/target-distance">
+        <FontAwesomeIcon icon="asterisk" />&nbsp; Target Distance
+      </DropdownItem>,
       /* jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here */
       <span key="dummy-placeholder" /> /* workaround to avoid error when there are no entities */
     ];

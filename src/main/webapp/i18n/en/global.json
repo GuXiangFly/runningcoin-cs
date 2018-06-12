@@ -7,6 +7,12 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entities",
+                "groupTable": "Group Table",
+                "runningRecord": "Running Record",
+                "voteRecord": "Vote Record",
+                "userInfo": "User Info",
+                "userGroup": "User Group",
+                "targetDistance": "Target Distance",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
