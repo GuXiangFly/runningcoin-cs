@@ -155,7 +155,7 @@ public class VoteRecordResourceIntTest {
         int databaseSizeBeforeCreate = voteRecordRepository.findAll().size();
 
         // Create the VoteRecord with an existing ID
-        voteRecord.setId(1L);
+        voteRecord.setId(1);
         VoteRecordDTO voteRecordDTO = voteRecordMapper.toDto(voteRecord);
 
         // An entity with an existing ID cannot be created, so this API call must fail
@@ -295,11 +295,11 @@ public class VoteRecordResourceIntTest {
     public void equalsVerifier() throws Exception {
         TestUtil.equalsVerifier(VoteRecord.class);
         VoteRecord voteRecord1 = new VoteRecord();
-        voteRecord1.setId(1L);
+        voteRecord1.setId(1);
         VoteRecord voteRecord2 = new VoteRecord();
         voteRecord2.setId(voteRecord1.getId());
         assertThat(voteRecord1).isEqualTo(voteRecord2);
-        voteRecord2.setId(2L);
+        voteRecord2.setId(2);
         assertThat(voteRecord1).isNotEqualTo(voteRecord2);
         voteRecord1.setId(null);
         assertThat(voteRecord1).isNotEqualTo(voteRecord2);
@@ -310,12 +310,12 @@ public class VoteRecordResourceIntTest {
     public void dtoEqualsVerifier() throws Exception {
         TestUtil.equalsVerifier(VoteRecordDTO.class);
         VoteRecordDTO voteRecordDTO1 = new VoteRecordDTO();
-        voteRecordDTO1.setId(1L);
+        voteRecordDTO1.setId(1);
         VoteRecordDTO voteRecordDTO2 = new VoteRecordDTO();
         assertThat(voteRecordDTO1).isNotEqualTo(voteRecordDTO2);
         voteRecordDTO2.setId(voteRecordDTO1.getId());
         assertThat(voteRecordDTO1).isEqualTo(voteRecordDTO2);
-        voteRecordDTO2.setId(2L);
+        voteRecordDTO2.setId(2);
         assertThat(voteRecordDTO1).isNotEqualTo(voteRecordDTO2);
         voteRecordDTO1.setId(null);
         assertThat(voteRecordDTO1).isNotEqualTo(voteRecordDTO2);
@@ -324,7 +324,7 @@ public class VoteRecordResourceIntTest {
     @Test
     @Transactional
     public void testEntityFromId() {
-        assertThat(voteRecordMapper.fromId(42L).getId()).isEqualTo(42);
+        assertThat(voteRecordMapper.fromId(42).getId()).isEqualTo(42);
         assertThat(voteRecordMapper.fromId(null)).isNull();
     }
 }

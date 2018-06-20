@@ -18,7 +18,7 @@ public class TargetDistance implements Serializable {
 
     @Id
     @Column(name ="TargetDistanceId")
-    private Long id;
+    private Integer id;
 
     @Column(name = "UserGroupId")
     private Integer userGroupId;
@@ -30,11 +30,11 @@ public class TargetDistance implements Serializable {
     private Float targetDistance;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

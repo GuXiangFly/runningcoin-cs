@@ -9,6 +9,6 @@ import org.springframework.data.jpa.repository.*;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface UserGroupRepository extends JpaRepository<UserGroup, Long> {
+public interface UserGroupRepository extends JpaRepository<UserGroup, Integer> {
 
 }

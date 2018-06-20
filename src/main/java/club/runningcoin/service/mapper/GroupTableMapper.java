@@ -13,7 +13,7 @@ public interface GroupTableMapper extends EntityMapper<GroupTableDTO, GroupTable
 
 
 
-    default GroupTable fromId(Long id) {
+    default GroupTable fromId(Integer id) {
         if (id == null) {
             return null;
         }

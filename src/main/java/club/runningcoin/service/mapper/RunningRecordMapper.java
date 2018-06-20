@@ -13,7 +13,7 @@ public interface RunningRecordMapper extends EntityMapper<RunningRecordDTO, Runn
 
 
 
-    default RunningRecord fromId(Long id) {
+    default RunningRecord fromId(Integer id) {
         if (id == null) {
             return null;
         }

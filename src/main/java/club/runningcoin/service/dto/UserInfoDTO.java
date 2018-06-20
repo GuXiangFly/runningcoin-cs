@@ -8,7 +8,7 @@ import java.util.Objects;
  */
 public class UserInfoDTO implements Serializable {
 
-    private Long id;
+    private Integer id;
 
     private String userName;
 
@@ -26,11 +26,11 @@ public class UserInfoDTO implements Serializable {
 
     private String openId;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

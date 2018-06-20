@@ -52,7 +52,7 @@ public class UserInfoResource {
         log.debug("REST request to save UserInfo : {}", userInfoDTO);
         if (userInfoDTO.getId() != null) {
             throw new BadRequestAlertException("A new userInfo cannot already have an ID", ENTITY_NAME, "idexists");
-        }        
+        }
         UserInfoDTO result = userInfoService.save(userInfoDTO);
         return ResponseEntity.created(new URI("/api/user-infos/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
@@ -74,7 +74,7 @@ public class UserInfoResource {
         log.debug("REST request to update UserInfo : {}", userInfoDTO);
         if (userInfoDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
-        }        
+        }
         UserInfoDTO result = userInfoService.save(userInfoDTO);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, userInfoDTO.getId().toString()))
@@ -104,7 +104,7 @@ public class UserInfoResource {
      */
     @GetMapping("/user-infos/{id}")
     @Timed
-    public ResponseEntity<UserInfoDTO> getUserInfo(@PathVariable Long id) {
+    public ResponseEntity<UserInfoDTO> getUserInfo(@PathVariable Integer id) {
         log.debug("REST request to get UserInfo : {}", id);
         Optional<UserInfoDTO> userInfoDTO = userInfoService.findOne(id);
         return ResponseUtil.wrapOrNotFound(userInfoDTO);
@@ -118,7 +118,7 @@ public class UserInfoResource {
      */
     @DeleteMapping("/user-infos/{id}")
     @Timed
-    public ResponseEntity<Void> deleteUserInfo(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteUserInfo(@PathVariable Integer id) {
         log.debug("REST request to delete UserInfo : {}", id);
         userInfoService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();

@@ -35,12 +35,12 @@ public interface UserInfoService {
      * @param id the id of the entity
      * @return the entity
      */
-    Optional<UserInfoDTO> findOne(Long id);
+    Optional<UserInfoDTO> findOne(Integer id);
 
     /**
      * Delete the "id" userInfo.
      *
      * @param id the id of the entity
      */
-    void delete(Long id);
+    void delete(Integer id);
 }

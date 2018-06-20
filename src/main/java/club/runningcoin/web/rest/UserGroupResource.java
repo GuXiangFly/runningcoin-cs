@@ -52,7 +52,7 @@ public class UserGroupResource {
         log.debug("REST request to save UserGroup : {}", userGroupDTO);
         if (userGroupDTO.getId() != null) {
             throw new BadRequestAlertException("A new userGroup cannot already have an ID", ENTITY_NAME, "idexists");
-        }        
+        }
         UserGroupDTO result = userGroupService.save(userGroupDTO);
         return ResponseEntity.created(new URI("/api/user-groups/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
@@ -74,7 +74,7 @@ public class UserGroupResource {
         log.debug("REST request to update UserGroup : {}", userGroupDTO);
         if (userGroupDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
-        }        
+        }
         UserGroupDTO result = userGroupService.save(userGroupDTO);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, userGroupDTO.getId().toString()))
@@ -104,7 +104,7 @@ public class UserGroupResource {
      */
     @GetMapping("/user-groups/{id}")
     @Timed
-    public ResponseEntity<UserGroupDTO> getUserGroup(@PathVariable Long id) {
+    public ResponseEntity<UserGroupDTO> getUserGroup(@PathVariable Integer id) {
         log.debug("REST request to get UserGroup : {}", id);
         Optional<UserGroupDTO> userGroupDTO = userGroupService.findOne(id);
         return ResponseUtil.wrapOrNotFound(userGroupDTO);
@@ -118,7 +118,7 @@ public class UserGroupResource {
      */
     @DeleteMapping("/user-groups/{id}")
     @Timed
-    public ResponseEntity<Void> deleteUserGroup(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteUserGroup(@PathVariable Integer id) {
         log.debug("REST request to delete UserGroup : {}", id);
         userGroupService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();

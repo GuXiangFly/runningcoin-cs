@@ -70,7 +70,7 @@ public class UserGroupServiceImpl implements UserGroupService {
      */
     @Override
     @Transactional(readOnly = true)
-    public Optional<UserGroupDTO> findOne(Long id) {
+    public Optional<UserGroupDTO> findOne(Integer id) {
         log.debug("Request to get UserGroup : {}", id);
         return userGroupRepository.findById(id)
             .map(userGroupMapper::toDto);
@@ -82,7 +82,7 @@ public class UserGroupServiceImpl implements UserGroupService {
      * @param id the id of the entity
      */
     @Override
-    public void delete(Long id) {
+    public void delete(Integer id) {
         log.debug("Request to delete UserGroup : {}", id);
         userGroupRepository.deleteById(id);
     }

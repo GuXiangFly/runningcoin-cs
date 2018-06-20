@@ -70,7 +70,7 @@ public class VoteRecordServiceImpl implements VoteRecordService {
      */
     @Override
     @Transactional(readOnly = true)
-    public Optional<VoteRecordDTO> findOne(Long id) {
+    public Optional<VoteRecordDTO> findOne(Integer id) {
         log.debug("Request to get VoteRecord : {}", id);
         return voteRecordRepository.findById(id)
             .map(voteRecordMapper::toDto);
@@ -82,7 +82,7 @@ public class VoteRecordServiceImpl implements VoteRecordService {
      * @param id the id of the entity
      */
     @Override
-    public void delete(Long id) {
+    public void delete(Integer id) {
         log.debug("Request to delete VoteRecord : {}", id);
         voteRecordRepository.deleteById(id);
     }

@@ -9,6 +9,6 @@ import org.springframework.data.jpa.repository.*;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface RunningRecordRepository extends JpaRepository<RunningRecord, Long> {
+public interface RunningRecordRepository extends JpaRepository<RunningRecord, Integer> {
 
 }

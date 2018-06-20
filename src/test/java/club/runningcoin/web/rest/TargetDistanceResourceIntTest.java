@@ -63,7 +63,7 @@ public class TargetDistanceResourceIntTest {
 
     @Autowired
     private TargetDistanceMapper targetDistanceMapper;
-    
+
 
     @Autowired
     private TargetDistanceService targetDistanceService;
@@ -141,7 +141,7 @@ public class TargetDistanceResourceIntTest {
         int databaseSizeBeforeCreate = targetDistanceRepository.findAll().size();
 
         // Create the TargetDistance with an existing ID
-        targetDistance.setId(1L);
+        targetDistance.setId(1);
         TargetDistanceDTO targetDistanceDTO = targetDistanceMapper.toDto(targetDistance);
 
         // An entity with an existing ID cannot be created, so this API call must fail
@@ -170,7 +170,7 @@ public class TargetDistanceResourceIntTest {
             .andExpect(jsonPath("$.[*].creationTime").value(hasItem(sameInstant(DEFAULT_CREATION_TIME))))
             .andExpect(jsonPath("$.[*].targetDistance").value(hasItem(DEFAULT_TARGET_DISTANCE.doubleValue())));
     }
-    
+
 
     @Test
     @Transactional
@@ -269,11 +269,11 @@ public class TargetDistanceResourceIntTest {
     public void equalsVerifier() throws Exception {
         TestUtil.equalsVerifier(TargetDistance.class);
         TargetDistance targetDistance1 = new TargetDistance();
-        targetDistance1.setId(1L);
+        targetDistance1.setId(1);
         TargetDistance targetDistance2 = new TargetDistance();
         targetDistance2.setId(targetDistance1.getId());
         assertThat(targetDistance1).isEqualTo(targetDistance2);
-        targetDistance2.setId(2L);
+        targetDistance2.setId(2);
         assertThat(targetDistance1).isNotEqualTo(targetDistance2);
         targetDistance1.setId(null);
         assertThat(targetDistance1).isNotEqualTo(targetDistance2);
@@ -284,12 +284,12 @@ public class TargetDistanceResourceIntTest {
     public void dtoEqualsVerifier() throws Exception {
         TestUtil.equalsVerifier(TargetDistanceDTO.class);
         TargetDistanceDTO targetDistanceDTO1 = new TargetDistanceDTO();
-        targetDistanceDTO1.setId(1L);
+        targetDistanceDTO1.setId(1);
         TargetDistanceDTO targetDistanceDTO2 = new TargetDistanceDTO();
         assertThat(targetDistanceDTO1).isNotEqualTo(targetDistanceDTO2);
         targetDistanceDTO2.setId(targetDistanceDTO1.getId());
         assertThat(targetDistanceDTO1).isEqualTo(targetDistanceDTO2);
-        targetDistanceDTO2.setId(2L);
+        targetDistanceDTO2.setId(2);
         assertThat(targetDistanceDTO1).isNotEqualTo(targetDistanceDTO2);
         targetDistanceDTO1.setId(null);
         assertThat(targetDistanceDTO1).isNotEqualTo(targetDistanceDTO2);
@@ -298,7 +298,7 @@ public class TargetDistanceResourceIntTest {
     @Test
     @Transactional
     public void testEntityFromId() {
-        assertThat(targetDistanceMapper.fromId(42L).getId()).isEqualTo(42);
+        assertThat(targetDistanceMapper.fromId(42).getId()).isEqualTo(42);
         assertThat(targetDistanceMapper.fromId(null)).isNull();
     }
 }

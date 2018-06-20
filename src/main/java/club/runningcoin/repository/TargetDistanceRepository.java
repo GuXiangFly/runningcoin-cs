@@ -9,6 +9,6 @@ import org.springframework.data.jpa.repository.*;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface TargetDistanceRepository extends JpaRepository<TargetDistance, Long> {
+public interface TargetDistanceRepository extends JpaRepository<TargetDistance, Integer> {
 
 }

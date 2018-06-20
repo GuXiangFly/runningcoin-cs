@@ -9,6 +9,6 @@ import org.springframework.data.jpa.repository.*;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface GroupTableRepository extends JpaRepository<GroupTable, Long> {
+public interface GroupTableRepository extends JpaRepository<GroupTable, Integer> {
 
 }

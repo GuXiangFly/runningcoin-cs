@@ -13,7 +13,7 @@ public interface UserInfoMapper extends EntityMapper<UserInfoDTO, UserInfo> {
 
 
 
-    default UserInfo fromId(Long id) {
+    default UserInfo fromId(Integer id) {
         if (id == null) {
             return null;
         }

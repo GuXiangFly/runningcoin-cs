@@ -84,7 +84,7 @@ public class RunningRecordResourceIntTest {
 
     @Autowired
     private RunningRecordMapper runningRecordMapper;
-    
+
 
     @Autowired
     private RunningRecordService runningRecordService;
@@ -176,7 +176,7 @@ public class RunningRecordResourceIntTest {
         int databaseSizeBeforeCreate = runningRecordRepository.findAll().size();
 
         // Create the RunningRecord with an existing ID
-        runningRecord.setId(1L);
+        runningRecord.setId(1);
         RunningRecordDTO runningRecordDTO = runningRecordMapper.toDto(runningRecord);
 
         // An entity with an existing ID cannot be created, so this API call must fail
@@ -212,7 +212,7 @@ public class RunningRecordResourceIntTest {
             .andExpect(jsonPath("$.[*].comments").value(hasItem(DEFAULT_COMMENTS.toString())))
             .andExpect(jsonPath("$.[*].evidence").value(hasItem(DEFAULT_EVIDENCE.toString())));
     }
-    
+
 
     @Test
     @Transactional
@@ -332,11 +332,11 @@ public class RunningRecordResourceIntTest {
     public void equalsVerifier() throws Exception {
         TestUtil.equalsVerifier(RunningRecord.class);
         RunningRecord runningRecord1 = new RunningRecord();
-        runningRecord1.setId(1L);
+        runningRecord1.setId(1);
         RunningRecord runningRecord2 = new RunningRecord();
         runningRecord2.setId(runningRecord1.getId());
         assertThat(runningRecord1).isEqualTo(runningRecord2);
-        runningRecord2.setId(2L);
+        runningRecord2.setId(2);
         assertThat(runningRecord1).isNotEqualTo(runningRecord2);
         runningRecord1.setId(null);
         assertThat(runningRecord1).isNotEqualTo(runningRecord2);
@@ -347,12 +347,12 @@ public class RunningRecordResourceIntTest {
     public void dtoEqualsVerifier() throws Exception {
         TestUtil.equalsVerifier(RunningRecordDTO.class);
         RunningRecordDTO runningRecordDTO1 = new RunningRecordDTO();
-        runningRecordDTO1.setId(1L);
+        runningRecordDTO1.setId(1);
         RunningRecordDTO runningRecordDTO2 = new RunningRecordDTO();
         assertThat(runningRecordDTO1).isNotEqualTo(runningRecordDTO2);
         runningRecordDTO2.setId(runningRecordDTO1.getId());
         assertThat(runningRecordDTO1).isEqualTo(runningRecordDTO2);
-        runningRecordDTO2.setId(2L);
+        runningRecordDTO2.setId(2);
         assertThat(runningRecordDTO1).isNotEqualTo(runningRecordDTO2);
         runningRecordDTO1.setId(null);
         assertThat(runningRecordDTO1).isNotEqualTo(runningRecordDTO2);
@@ -361,7 +361,7 @@ public class RunningRecordResourceIntTest {
     @Test
     @Transactional
     public void testEntityFromId() {
-        assertThat(runningRecordMapper.fromId(42L).getId()).isEqualTo(42);
+        assertThat(runningRecordMapper.fromId(42).getId()).isEqualTo(42);
         assertThat(runningRecordMapper.fromId(null)).isNull();
     }
 }

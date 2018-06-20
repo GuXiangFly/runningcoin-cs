@@ -52,7 +52,7 @@ public class VoteRecordResource {
         log.debug("REST request to save VoteRecord : {}", voteRecordDTO);
         if (voteRecordDTO.getId() != null) {
             throw new BadRequestAlertException("A new voteRecord cannot already have an ID", ENTITY_NAME, "idexists");
-        }        
+        }
         VoteRecordDTO result = voteRecordService.save(voteRecordDTO);
         return ResponseEntity.created(new URI("/api/vote-records/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
@@ -74,7 +74,7 @@ public class VoteRecordResource {
         log.debug("REST request to update VoteRecord : {}", voteRecordDTO);
         if (voteRecordDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
-        }        
+        }
         VoteRecordDTO result = voteRecordService.save(voteRecordDTO);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, voteRecordDTO.getId().toString()))
@@ -104,7 +104,7 @@ public class VoteRecordResource {
      */
     @GetMapping("/vote-records/{id}")
     @Timed
-    public ResponseEntity<VoteRecordDTO> getVoteRecord(@PathVariable Long id) {
+    public ResponseEntity<VoteRecordDTO> getVoteRecord(@PathVariable Integer id) {
         log.debug("REST request to get VoteRecord : {}", id);
         Optional<VoteRecordDTO> voteRecordDTO = voteRecordService.findOne(id);
         return ResponseUtil.wrapOrNotFound(voteRecordDTO);
@@ -118,7 +118,7 @@ public class VoteRecordResource {
      */
     @DeleteMapping("/vote-records/{id}")
     @Timed
-    public ResponseEntity<Void> deleteVoteRecord(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteVoteRecord(@PathVariable Integer id) {
         log.debug("REST request to delete VoteRecord : {}", id);
         voteRecordService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();

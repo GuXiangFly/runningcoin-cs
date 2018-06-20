@@ -17,7 +17,7 @@ public class UserGroup implements Serializable {
 
     @Id
     @Column(name = "UserGroupId")
-    private Long id;
+    private Integer id;
 
     @Column(name = "UserOpenid")
     private String userOpenid;
@@ -26,11 +26,11 @@ public class UserGroup implements Serializable {
     private Integer groupId;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

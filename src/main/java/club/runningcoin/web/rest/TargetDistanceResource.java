@@ -52,7 +52,7 @@ public class TargetDistanceResource {
         log.debug("REST request to save TargetDistance : {}", targetDistanceDTO);
         if (targetDistanceDTO.getId() != null) {
             throw new BadRequestAlertException("A new targetDistance cannot already have an ID", ENTITY_NAME, "idexists");
-        }        
+        }
         TargetDistanceDTO result = targetDistanceService.save(targetDistanceDTO);
         return ResponseEntity.created(new URI("/api/target-distances/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
@@ -74,7 +74,7 @@ public class TargetDistanceResource {
         log.debug("REST request to update TargetDistance : {}", targetDistanceDTO);
         if (targetDistanceDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
-        }        
+        }
         TargetDistanceDTO result = targetDistanceService.save(targetDistanceDTO);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, targetDistanceDTO.getId().toString()))
@@ -104,7 +104,7 @@ public class TargetDistanceResource {
      */
     @GetMapping("/target-distances/{id}")
     @Timed
-    public ResponseEntity<TargetDistanceDTO> getTargetDistance(@PathVariable Long id) {
+    public ResponseEntity<TargetDistanceDTO> getTargetDistance(@PathVariable Integer id) {
         log.debug("REST request to get TargetDistance : {}", id);
         Optional<TargetDistanceDTO> targetDistanceDTO = targetDistanceService.findOne(id);
         return ResponseUtil.wrapOrNotFound(targetDistanceDTO);
@@ -118,7 +118,7 @@ public class TargetDistanceResource {
      */
     @DeleteMapping("/target-distances/{id}")
     @Timed
-    public ResponseEntity<Void> deleteTargetDistance(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteTargetDistance(@PathVariable Integer id) {
         log.debug("REST request to delete TargetDistance : {}", id);
         targetDistanceService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();

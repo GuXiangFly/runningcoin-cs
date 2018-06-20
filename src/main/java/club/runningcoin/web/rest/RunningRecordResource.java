@@ -52,7 +52,7 @@ public class RunningRecordResource {
         log.debug("REST request to save RunningRecord : {}", runningRecordDTO);
         if (runningRecordDTO.getId() != null) {
             throw new BadRequestAlertException("A new runningRecord cannot already have an ID", ENTITY_NAME, "idexists");
-        }        
+        }
         RunningRecordDTO result = runningRecordService.save(runningRecordDTO);
         return ResponseEntity.created(new URI("/api/running-records/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
@@ -74,7 +74,7 @@ public class RunningRecordResource {
         log.debug("REST request to update RunningRecord : {}", runningRecordDTO);
         if (runningRecordDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
-        }        
+        }
         RunningRecordDTO result = runningRecordService.save(runningRecordDTO);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, runningRecordDTO.getId().toString()))
@@ -104,7 +104,7 @@ public class RunningRecordResource {
      */
     @GetMapping("/running-records/{id}")
     @Timed
-    public ResponseEntity<RunningRecordDTO> getRunningRecord(@PathVariable Long id) {
+    public ResponseEntity<RunningRecordDTO> getRunningRecord(@PathVariable Integer id) {
         log.debug("REST request to get RunningRecord : {}", id);
         Optional<RunningRecordDTO> runningRecordDTO = runningRecordService.findOne(id);
         return ResponseUtil.wrapOrNotFound(runningRecordDTO);
@@ -118,7 +118,7 @@ public class RunningRecordResource {
      */
     @DeleteMapping("/running-records/{id}")
     @Timed
-    public ResponseEntity<Void> deleteRunningRecord(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteRunningRecord(@PathVariable Integer id) {
         log.debug("REST request to delete RunningRecord : {}", id);
         runningRecordService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();

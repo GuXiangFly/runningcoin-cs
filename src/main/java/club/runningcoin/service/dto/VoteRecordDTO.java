@@ -9,7 +9,7 @@ import java.util.Objects;
  */
 public class VoteRecordDTO implements Serializable {
 
-    private Long id;
+    private Integer id;
 
     private Integer voteUserGroupId;
 
@@ -23,11 +23,11 @@ public class VoteRecordDTO implements Serializable {
 
     private String comments;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

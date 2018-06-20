@@ -73,7 +73,7 @@ public class UserInfoResourceIntTest {
 
     @Autowired
     private UserInfoMapper userInfoMapper;
-    
+
 
     @Autowired
     private UserInfoService userInfoService;
@@ -161,7 +161,7 @@ public class UserInfoResourceIntTest {
         int databaseSizeBeforeCreate = userInfoRepository.findAll().size();
 
         // Create the UserInfo with an existing ID
-        userInfo.setId(1L);
+        userInfo.setId(1);
         UserInfoDTO userInfoDTO = userInfoMapper.toDto(userInfo);
 
         // An entity with an existing ID cannot be created, so this API call must fail
@@ -195,7 +195,7 @@ public class UserInfoResourceIntTest {
             .andExpect(jsonPath("$.[*].metaData").value(hasItem(DEFAULT_META_DATA.toString())))
             .andExpect(jsonPath("$.[*].openId").value(hasItem(DEFAULT_OPEN_ID.toString())));
     }
-    
+
 
     @Test
     @Transactional
@@ -309,11 +309,11 @@ public class UserInfoResourceIntTest {
     public void equalsVerifier() throws Exception {
         TestUtil.equalsVerifier(UserInfo.class);
         UserInfo userInfo1 = new UserInfo();
-        userInfo1.setId(1L);
+        userInfo1.setId(1);
         UserInfo userInfo2 = new UserInfo();
         userInfo2.setId(userInfo1.getId());
         assertThat(userInfo1).isEqualTo(userInfo2);
-        userInfo2.setId(2L);
+        userInfo2.setId(2);
         assertThat(userInfo1).isNotEqualTo(userInfo2);
         userInfo1.setId(null);
         assertThat(userInfo1).isNotEqualTo(userInfo2);
@@ -324,12 +324,12 @@ public class UserInfoResourceIntTest {
     public void dtoEqualsVerifier() throws Exception {
         TestUtil.equalsVerifier(UserInfoDTO.class);
         UserInfoDTO userInfoDTO1 = new UserInfoDTO();
-        userInfoDTO1.setId(1L);
+        userInfoDTO1.setId(1);
         UserInfoDTO userInfoDTO2 = new UserInfoDTO();
         assertThat(userInfoDTO1).isNotEqualTo(userInfoDTO2);
         userInfoDTO2.setId(userInfoDTO1.getId());
         assertThat(userInfoDTO1).isEqualTo(userInfoDTO2);
-        userInfoDTO2.setId(2L);
+        userInfoDTO2.setId(2);
         assertThat(userInfoDTO1).isNotEqualTo(userInfoDTO2);
         userInfoDTO1.setId(null);
         assertThat(userInfoDTO1).isNotEqualTo(userInfoDTO2);
@@ -338,7 +338,7 @@ public class UserInfoResourceIntTest {
     @Test
     @Transactional
     public void testEntityFromId() {
-        assertThat(userInfoMapper.fromId(42L).getId()).isEqualTo(42);
+        assertThat(userInfoMapper.fromId(42).getId()).isEqualTo(42);
         assertThat(userInfoMapper.fromId(null)).isNull();
     }
 }

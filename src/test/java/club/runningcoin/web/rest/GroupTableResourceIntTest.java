@@ -55,7 +55,7 @@ public class GroupTableResourceIntTest {
 
     @Autowired
     private GroupTableMapper groupTableMapper;
-    
+
 
     @Autowired
     private GroupTableService groupTableService;
@@ -131,7 +131,7 @@ public class GroupTableResourceIntTest {
         int databaseSizeBeforeCreate = groupTableRepository.findAll().size();
 
         // Create the GroupTable with an existing ID
-        groupTable.setId(1L);
+        groupTable.setId(1);
         GroupTableDTO groupTableDTO = groupTableMapper.toDto(groupTable);
 
         // An entity with an existing ID cannot be created, so this API call must fail
@@ -159,7 +159,7 @@ public class GroupTableResourceIntTest {
             .andExpect(jsonPath("$.[*].groupName").value(hasItem(DEFAULT_GROUP_NAME.toString())))
             .andExpect(jsonPath("$.[*].metaData").value(hasItem(DEFAULT_META_DATA.toString())));
     }
-    
+
 
     @Test
     @Transactional
@@ -255,11 +255,11 @@ public class GroupTableResourceIntTest {
     public void equalsVerifier() throws Exception {
         TestUtil.equalsVerifier(GroupTable.class);
         GroupTable groupTable1 = new GroupTable();
-        groupTable1.setId(1L);
+        groupTable1.setId(1);
         GroupTable groupTable2 = new GroupTable();
         groupTable2.setId(groupTable1.getId());
         assertThat(groupTable1).isEqualTo(groupTable2);
-        groupTable2.setId(2L);
+        groupTable2.setId(2);
         assertThat(groupTable1).isNotEqualTo(groupTable2);
         groupTable1.setId(null);
         assertThat(groupTable1).isNotEqualTo(groupTable2);
@@ -270,12 +270,12 @@ public class GroupTableResourceIntTest {
     public void dtoEqualsVerifier() throws Exception {
         TestUtil.equalsVerifier(GroupTableDTO.class);
         GroupTableDTO groupTableDTO1 = new GroupTableDTO();
-        groupTableDTO1.setId(1L);
+        groupTableDTO1.setId(1);
         GroupTableDTO groupTableDTO2 = new GroupTableDTO();
         assertThat(groupTableDTO1).isNotEqualTo(groupTableDTO2);
         groupTableDTO2.setId(groupTableDTO1.getId());
         assertThat(groupTableDTO1).isEqualTo(groupTableDTO2);
-        groupTableDTO2.setId(2L);
+        groupTableDTO2.setId(2);
         assertThat(groupTableDTO1).isNotEqualTo(groupTableDTO2);
         groupTableDTO1.setId(null);
         assertThat(groupTableDTO1).isNotEqualTo(groupTableDTO2);
@@ -284,7 +284,7 @@ public class GroupTableResourceIntTest {
     @Test
     @Transactional
     public void testEntityFromId() {
-        assertThat(groupTableMapper.fromId(42L).getId()).isEqualTo(42);
+        assertThat(groupTableMapper.fromId(42).getId()).isEqualTo(42);
         assertThat(groupTableMapper.fromId(null)).isNull();
     }
 }

@@ -13,7 +13,7 @@ public interface TargetDistanceMapper extends EntityMapper<TargetDistanceDTO, Ta
 
 
 
-    default TargetDistance fromId(Long id) {
+    default TargetDistance fromId(Integer id) {
         if (id == null) {
             return null;
         }

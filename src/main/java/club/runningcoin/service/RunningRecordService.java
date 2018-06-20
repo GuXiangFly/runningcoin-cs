@@ -35,12 +35,12 @@ public interface RunningRecordService {
      * @param id the id of the entity
      * @return the entity
      */
-    Optional<RunningRecordDTO> findOne(Long id);
+    Optional<RunningRecordDTO> findOne(Integer id);
 
     /**
      * Delete the "id" runningRecord.
      *
      * @param id the id of the entity
      */
-    void delete(Long id);
+    void delete(Integer id);
 }

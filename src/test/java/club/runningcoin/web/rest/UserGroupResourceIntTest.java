@@ -55,7 +55,7 @@ public class UserGroupResourceIntTest {
 
     @Autowired
     private UserGroupMapper userGroupMapper;
-    
+
 
     @Autowired
     private UserGroupService userGroupService;
@@ -131,7 +131,7 @@ public class UserGroupResourceIntTest {
         int databaseSizeBeforeCreate = userGroupRepository.findAll().size();
 
         // Create the UserGroup with an existing ID
-        userGroup.setId(1L);
+        userGroup.setId(1);
         UserGroupDTO userGroupDTO = userGroupMapper.toDto(userGroup);
 
         // An entity with an existing ID cannot be created, so this API call must fail
@@ -159,7 +159,7 @@ public class UserGroupResourceIntTest {
             .andExpect(jsonPath("$.[*].userOpenid").value(hasItem(DEFAULT_USER_OPENID.toString())))
             .andExpect(jsonPath("$.[*].groupId").value(hasItem(DEFAULT_GROUP_ID)));
     }
-    
+
 
     @Test
     @Transactional
@@ -255,11 +255,11 @@ public class UserGroupResourceIntTest {
     public void equalsVerifier() throws Exception {
         TestUtil.equalsVerifier(UserGroup.class);
         UserGroup userGroup1 = new UserGroup();
-        userGroup1.setId(1L);
+        userGroup1.setId(1);
         UserGroup userGroup2 = new UserGroup();
         userGroup2.setId(userGroup1.getId());
         assertThat(userGroup1).isEqualTo(userGroup2);
-        userGroup2.setId(2L);
+        userGroup2.setId(2);
         assertThat(userGroup1).isNotEqualTo(userGroup2);
         userGroup1.setId(null);
         assertThat(userGroup1).isNotEqualTo(userGroup2);
@@ -270,12 +270,12 @@ public class UserGroupResourceIntTest {
     public void dtoEqualsVerifier() throws Exception {
         TestUtil.equalsVerifier(UserGroupDTO.class);
         UserGroupDTO userGroupDTO1 = new UserGroupDTO();
-        userGroupDTO1.setId(1L);
+        userGroupDTO1.setId(1);
         UserGroupDTO userGroupDTO2 = new UserGroupDTO();
         assertThat(userGroupDTO1).isNotEqualTo(userGroupDTO2);
         userGroupDTO2.setId(userGroupDTO1.getId());
         assertThat(userGroupDTO1).isEqualTo(userGroupDTO2);
-        userGroupDTO2.setId(2L);
+        userGroupDTO2.setId(2);
         assertThat(userGroupDTO1).isNotEqualTo(userGroupDTO2);
         userGroupDTO1.setId(null);
         assertThat(userGroupDTO1).isNotEqualTo(userGroupDTO2);
@@ -284,7 +284,7 @@ public class UserGroupResourceIntTest {
     @Test
     @Transactional
     public void testEntityFromId() {
-        assertThat(userGroupMapper.fromId(42L).getId()).isEqualTo(42);
+        assertThat(userGroupMapper.fromId(42).getId()).isEqualTo(42);
         assertThat(userGroupMapper.fromId(null)).isNull();
     }
 }

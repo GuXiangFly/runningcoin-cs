@@ -18,7 +18,7 @@ public class VoteRecord implements Serializable {
 
     @Id
     @Column(name = "VoteRecordId")
-    private Long id;
+    private Integer id;
 
     @Column(name = "VoteUserGroupId")
     private Integer voteUserGroupId;
@@ -39,11 +39,11 @@ public class VoteRecord implements Serializable {
     private String comments;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

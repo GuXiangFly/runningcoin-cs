@@ -8,17 +8,17 @@ import java.util.Objects;
  */
 public class UserGroupDTO implements Serializable {
 
-    private Long id;
+    private Integer id;
 
     private String userOpenid;
 
     private Integer groupId;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

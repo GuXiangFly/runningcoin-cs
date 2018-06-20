@@ -35,12 +35,12 @@ public interface GroupTableService {
      * @param id the id of the entity
      * @return the entity
      */
-    Optional<GroupTableDTO> findOne(Long id);
+    Optional<GroupTableDTO> findOne(Integer id);
 
     /**
      * Delete the "id" groupTable.
      *
      * @param id the id of the entity
      */
-    void delete(Long id);
+    void delete(Integer id);
 }

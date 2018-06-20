@@ -9,7 +9,7 @@ import java.util.Objects;
  */
 public class TargetDistanceDTO implements Serializable {
 
-    private Long id;
+    private Integer id;
 
     private Integer userGroupId;
 
@@ -17,11 +17,11 @@ public class TargetDistanceDTO implements Serializable {
 
     private Float targetDistance;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

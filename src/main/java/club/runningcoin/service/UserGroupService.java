@@ -35,12 +35,12 @@ public interface UserGroupService {
      * @param id the id of the entity
      * @return the entity
      */
-    Optional<UserGroupDTO> findOne(Long id);
+    Optional<UserGroupDTO> findOne(Integer id);
 
     /**
      * Delete the "id" userGroup.
      *
      * @param id the id of the entity
      */
-    void delete(Long id);
+    void delete(Integer id);
 }

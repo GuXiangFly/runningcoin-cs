@@ -70,7 +70,7 @@ public class UserInfoServiceImpl implements UserInfoService {
      */
     @Override
     @Transactional(readOnly = true)
-    public Optional<UserInfoDTO> findOne(Long id) {
+    public Optional<UserInfoDTO> findOne(Integer id) {
         log.debug("Request to get UserInfo : {}", id);
         return userInfoRepository.findById(id)
             .map(userInfoMapper::toDto);
@@ -82,7 +82,7 @@ public class UserInfoServiceImpl implements UserInfoService {
      * @param id the id of the entity
      */
     @Override
-    public void delete(Long id) {
+    public void delete(Integer id) {
         log.debug("Request to delete UserInfo : {}", id);
         userInfoRepository.deleteById(id);
     }

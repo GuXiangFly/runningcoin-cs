@@ -13,7 +13,7 @@ public interface VoteRecordMapper extends EntityMapper<VoteRecordDTO, VoteRecord
 
 
 
-    default VoteRecord fromId(Long id) {
+    default VoteRecord fromId(Integer id) {
         if (id == null) {
             return null;
         }

@@ -9,7 +9,7 @@ import java.util.Objects;
  */
 public class RunningRecordDTO implements Serializable {
 
-    private Long id;
+    private Integer id;
 
     private Integer userGroupId;
 
@@ -31,11 +31,11 @@ public class RunningRecordDTO implements Serializable {
 
     private String evidence;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

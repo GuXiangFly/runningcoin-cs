@@ -70,7 +70,7 @@ public class RunningRecordServiceImpl implements RunningRecordService {
      */
     @Override
     @Transactional(readOnly = true)
-    public Optional<RunningRecordDTO> findOne(Long id) {
+    public Optional<RunningRecordDTO> findOne(Integer id) {
         log.debug("Request to get RunningRecord : {}", id);
         return runningRecordRepository.findById(id)
             .map(runningRecordMapper::toDto);
@@ -82,7 +82,7 @@ public class RunningRecordServiceImpl implements RunningRecordService {
      * @param id the id of the entity
      */
     @Override
-    public void delete(Long id) {
+    public void delete(Integer id) {
         log.debug("Request to delete RunningRecord : {}", id);
         runningRecordRepository.deleteById(id);
     }

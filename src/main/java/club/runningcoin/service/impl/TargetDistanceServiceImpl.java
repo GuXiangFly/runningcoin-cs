@@ -70,7 +70,7 @@ public class TargetDistanceServiceImpl implements TargetDistanceService {
      */
     @Override
     @Transactional(readOnly = true)
-    public Optional<TargetDistanceDTO> findOne(Long id) {
+    public Optional<TargetDistanceDTO> findOne(Integer id) {
         log.debug("Request to get TargetDistance : {}", id);
         return targetDistanceRepository.findById(id)
             .map(targetDistanceMapper::toDto);
@@ -82,7 +82,7 @@ public class TargetDistanceServiceImpl implements TargetDistanceService {
      * @param id the id of the entity
      */
     @Override
-    public void delete(Long id) {
+    public void delete(Integer id) {
         log.debug("Request to delete TargetDistance : {}", id);
         targetDistanceRepository.deleteById(id);
     }

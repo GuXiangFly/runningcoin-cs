@@ -52,7 +52,7 @@ public class GroupTableResource {
         log.debug("REST request to save GroupTable : {}", groupTableDTO);
         if (groupTableDTO.getId() != null) {
             throw new BadRequestAlertException("A new groupTable cannot already have an ID", ENTITY_NAME, "idexists");
-        }        
+        }
         GroupTableDTO result = groupTableService.save(groupTableDTO);
         return ResponseEntity.created(new URI("/api/group-tables/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
@@ -74,7 +74,7 @@ public class GroupTableResource {
         log.debug("REST request to update GroupTable : {}", groupTableDTO);
         if (groupTableDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
-        }        
+        }
         GroupTableDTO result = groupTableService.save(groupTableDTO);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, groupTableDTO.getId().toString()))
@@ -104,7 +104,7 @@ public class GroupTableResource {
      */
     @GetMapping("/group-tables/{id}")
     @Timed
-    public ResponseEntity<GroupTableDTO> getGroupTable(@PathVariable Long id) {
+    public ResponseEntity<GroupTableDTO> getGroupTable(@PathVariable Integer id) {
         log.debug("REST request to get GroupTable : {}", id);
         Optional<GroupTableDTO> groupTableDTO = groupTableService.findOne(id);
         return ResponseUtil.wrapOrNotFound(groupTableDTO);
@@ -118,7 +118,7 @@ public class GroupTableResource {
      */
     @DeleteMapping("/group-tables/{id}")
     @Timed
-    public ResponseEntity<Void> deleteGroupTable(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteGroupTable(@PathVariable Integer id) {
         log.debug("REST request to delete GroupTable : {}", id);
         groupTableService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();

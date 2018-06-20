@@ -17,7 +17,7 @@ public class GroupTable implements Serializable {
 
     @Id
     @Column(name ="GroupId")
-    private Long id;
+    private Integer id;
 
     @Column(name = "GroupName")
     private String groupName;
@@ -26,11 +26,11 @@ public class GroupTable implements Serializable {
     private String metaData;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

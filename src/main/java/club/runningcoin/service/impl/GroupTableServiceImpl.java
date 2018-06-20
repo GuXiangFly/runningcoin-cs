@@ -70,7 +70,7 @@ public class GroupTableServiceImpl implements GroupTableService {
      */
     @Override
     @Transactional(readOnly = true)
-    public Optional<GroupTableDTO> findOne(Long id) {
+    public Optional<GroupTableDTO> findOne(Integer id) {
         log.debug("Request to get GroupTable : {}", id);
         return groupTableRepository.findById(id)
             .map(groupTableMapper::toDto);
@@ -82,7 +82,7 @@ public class GroupTableServiceImpl implements GroupTableService {
      * @param id the id of the entity
      */
     @Override
-    public void delete(Long id) {
+    public void delete(Integer id) {
         log.debug("Request to delete GroupTable : {}", id);
         groupTableRepository.deleteById(id);
     }

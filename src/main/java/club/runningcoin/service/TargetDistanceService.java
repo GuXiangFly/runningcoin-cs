@@ -35,12 +35,12 @@ public interface TargetDistanceService {
      * @param id the id of the entity
      * @return the entity
      */
-    Optional<TargetDistanceDTO> findOne(Long id);
+    Optional<TargetDistanceDTO> findOne(Integer id);
 
     /**
      * Delete the "id" targetDistance.
      *
      * @param id the id of the entity
      */
-    void delete(Long id);
+    void delete(Integer id);
 }

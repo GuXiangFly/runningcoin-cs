@@ -13,7 +13,7 @@ public interface UserGroupMapper extends EntityMapper<UserGroupDTO, UserGroup> {
 
 
 
-    default UserGroup fromId(Long id) {
+    default UserGroup fromId(Integer id) {
         if (id == null) {
             return null;
         }
