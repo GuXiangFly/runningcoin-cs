@@ -70,7 +70,7 @@ export class UserInfo extends React.Component<IUserInfoProps, IUserInfoState> {
             <thead>
               <tr>
                 <th className="hand" onClick={this.sort('id')}>
-                  <Translate contentKey="global.field.id">ID</Translate> <FontAwesomeIcon icon="sort" />
+                  User ID <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('userName')}>
                   <Translate contentKey="runningcoinCsApp.userInfo.userName">User Name</Translate> <FontAwesomeIcon icon="sort" />
@@ -117,6 +117,13 @@ export class UserInfo extends React.Component<IUserInfoProps, IUserInfoState> {
                   <td>{userInfo.openId}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
+
+                      <Button tag={Link} to={`${match.url}/${userInfo.id}/changeStatus`} color="primary" size="sm">
+                        <FontAwesomeIcon icon="pencil-alt" />{' '}
+                        <span className="d-none d-md-inline">
+                          Change Status
+                        </span>
+                      </Button>
                       <Button tag={Link} to={`${match.url}/${userInfo.id}`} color="info" size="sm">
                         <FontAwesomeIcon icon="eye" />{' '}
                         <span className="d-none d-md-inline">

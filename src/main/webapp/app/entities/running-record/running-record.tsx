@@ -78,7 +78,7 @@ export class RunningRecord extends React.Component<IRunningRecordProps, IRunning
             <thead>
               <tr>
                 <th className="hand" onClick={this.sort('id')}>
-                  <Translate contentKey="global.field.id">ID</Translate> <FontAwesomeIcon icon="sort" />
+                  RunningRecordID <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('userGroupId')}>
                   <Translate contentKey="runningcoinCsApp.runningRecord.userGroupId">User Group Id</Translate>{' '}

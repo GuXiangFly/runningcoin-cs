@@ -5,6 +5,7 @@ import UserInfo from './user-info';
 import UserInfoDetail from './user-info-detail';
 import UserInfoUpdate from './user-info-update';
 import UserInfoDeleteDialog from './user-info-delete-dialog';
+import UserInfoChangeStatusDialog from './user-info-change-status-dialog';
 
 const Routes = ({ match }) => (
   <>
@@ -15,6 +16,7 @@ const Routes = ({ match }) => (
       <Route path={match.url} component={UserInfo} />
     </Switch>
     <Route path={`${match.url}/:id/delete`} component={UserInfoDeleteDialog} />
+    <Route path={`${match.url}/:id/changeStatus`} component={UserInfoChangeStatusDialog} />
   </>
 );
 

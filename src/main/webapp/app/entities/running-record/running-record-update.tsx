@@ -93,7 +93,7 @@ export class RunningRecordUpdate extends React.Component<IRunningRecordUpdatePro
                 {!isNew ? (
                   <AvGroup>
                     <Label for="id">
-                      <Translate contentKey="global.field.id">ID</Translate>
+                      <Translate contentKey="global.field.id">RunningRecordID</Translate>
                     </Label>
                     <AvInput type="text" className="form-control" name="id" required readOnly />
                   </AvGroup>

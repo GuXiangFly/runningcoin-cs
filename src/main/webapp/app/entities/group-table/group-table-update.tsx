@@ -89,7 +89,7 @@ export class GroupTableUpdate extends React.Component<IGroupTableUpdateProps, IG
                 {!isNew ? (
                   <AvGroup>
                     <Label for="id">
-                      <Translate contentKey="global.field.id">ID</Translate>
+                      <Translate contentKey="global.field.id">GroupId</Translate>
                     </Label>
                     <AvInput type="text" className="form-control" name="id" required readOnly />
                   </AvGroup>

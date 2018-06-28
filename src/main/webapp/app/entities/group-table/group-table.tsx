@@ -70,7 +70,7 @@ export class GroupTable extends React.Component<IGroupTableProps, IGroupTableSta
             <thead>
               <tr>
                 <th className="hand" onClick={this.sort('id')}>
-                  <Translate contentKey="global.field.id">ID</Translate> <FontAwesomeIcon icon="sort" />
+                  GroupID <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('groupName')}>
                   <Translate contentKey="runningcoinCsApp.groupTable.groupName">Group Name</Translate> <FontAwesomeIcon icon="sort" />

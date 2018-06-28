@@ -70,7 +70,7 @@ export class VoteRecord extends React.Component<IVoteRecordProps, IVoteRecordSta
             <thead>
               <tr>
                 <th className="hand" onClick={this.sort('id')}>
-                  <Translate contentKey="global.field.id">ID</Translate> <FontAwesomeIcon icon="sort" />
+                  VotedRecordID <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('voteUserGroupId')}>
                   <Translate contentKey="runningcoinCsApp.voteRecord.voteUserGroupId">Vote User Group Id</Translate>{' '}

@@ -78,7 +78,7 @@ export class TargetDistance extends React.Component<ITargetDistanceProps, ITarge
             <thead>
               <tr>
                 <th className="hand" onClick={this.sort('id')}>
-                  <Translate contentKey="global.field.id">ID</Translate> <FontAwesomeIcon icon="sort" />
+                  TargetDistanceID <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('userGroupId')}>
                   <Translate contentKey="runningcoinCsApp.targetDistance.userGroupId">User Group Id</Translate>{' '}

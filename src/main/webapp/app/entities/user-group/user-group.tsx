@@ -70,7 +70,7 @@ export class UserGroup extends React.Component<IUserGroupProps, IUserGroupState>
             <thead>
               <tr>
                 <th className="hand" onClick={this.sort('id')}>
-                  <Translate contentKey="global.field.id">ID</Translate> <FontAwesomeIcon icon="sort" />
+                  UserGroupID <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={this.sort('userOpenid')}>
                   <Translate contentKey="runningcoinCsApp.userGroup.userOpenid">User Openid</Translate> <FontAwesomeIcon icon="sort" />
