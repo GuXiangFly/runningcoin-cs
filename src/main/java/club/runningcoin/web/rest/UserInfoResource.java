@@ -110,6 +110,14 @@ public class UserInfoResource {
         return ResponseUtil.wrapOrNotFound(userInfoDTO);
     }
 
+    @GetMapping("/user-infos/changeStatus/{id}")
+    @Timed
+    public ResponseEntity<UserInfoDTO> changeUserInfoStatus(@PathVariable Integer id) {
+        log.debug("REST request to get UserInfo : {}", id);
+        Optional<UserInfoDTO> userInfoDTO = userInfoService.findOne(id);
+        return ResponseUtil.wrapOrNotFound(userInfoDTO);
+    }
+
     /**
      * DELETE  /user-infos/:id : delete the "id" userInfo.
      *

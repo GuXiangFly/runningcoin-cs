@@ -43,4 +43,7 @@ public interface UserInfoService {
      * @param id the id of the entity
      */
     void delete(Integer id);
+
+    
+
 }
