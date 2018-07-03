@@ -5,10 +5,11 @@ import { Translate, ICrudGetAction, ICrudDeleteAction } from 'react-jhipster';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 
 import { IUserInfo } from 'app/shared/model/user-info.model';
-import { getEntity, deleteEntity } from './user-info.reducer';
+import { getEntity, deleteEntity,changeEntityStatus } from './user-info.reducer';
 
 export interface IUserInfoDeleteDialogProps {
   getEntity: ICrudGetAction<IUserInfo>;
+  changeEntityStatus: ICrudGetAction<IUserInfo>;
   deleteEntity: ICrudDeleteAction<IUserInfo>;
   userInfo: IUserInfo;
   match: any;
@@ -30,6 +31,11 @@ export class UserInfoChangeStatusDialog extends React.Component<IUserInfoDeleteD
     this.props.history.goBack();
   };
 
+  confirmChange=event=>{
+    this.props.changeEntityStatus(this.props.userInfo.id);
+  this.handleClose(event);
+  }
+
   render() {
     const { userInfo } = this.props;
     return (
@@ -47,7 +53,7 @@ export class UserInfoChangeStatusDialog extends React.Component<IUserInfoDeleteD
             <FontAwesomeIcon icon="ban" />&nbsp;
             <Translate contentKey="entity.action.cancel">Cancel</Translate>
           </Button>
-          <Button color="danger" onClick={this.confirmDelete}>
+          <Button color="danger" onClick={this.confirmChange}>
             <FontAwesomeIcon icon="trash" />&nbsp;
             Change
           </Button>

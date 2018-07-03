@@ -13,6 +13,7 @@ export const ACTION_TYPES = {
   CREATE_USERINFO: 'userInfo/CREATE_USERINFO',
   UPDATE_USERINFO: 'userInfo/UPDATE_USERINFO',
   DELETE_USERINFO: 'userInfo/DELETE_USERINFO',
+  CHANGESTATUS_USERINFO: 'userInfo/CHANGESTATUS_USERINFO',
   RESET: 'userInfo/RESET'
 };
 
@@ -143,6 +144,14 @@ export const deleteEntity: ICrudDeleteAction<IUserInfo> = id => async dispatch =
   dispatch(getEntities());
   return result;
 };
+
+export const changeEntityStatus: ICrudGetAction<IUserInfo> = id => {
+  const requestUrl = `${apiUrl}/changeStatus/${id}`;
+  return {
+    type: ACTION_TYPES.CHANGESTATUS_USERINFO,
+    payload: axios.get(requestUrl) as Promise<IUserInfo>
+  };
+}
 
 export const reset = () => ({
   type: ACTION_TYPES.RESET
